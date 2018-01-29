@@ -4,9 +4,21 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script type="module" crossorigin="anonymous" src="./test.js"></script>
-This is a simple example that shows how to intercept `import` specifiers using service workers.
-Check out how our service worker rewrote <a href="./test.js">./test.js</a> vs how it is on disk.
 
+<a href="https://github.com/bmeck/node-sw-compat-loader-test">Fork me on github</a>
+
+<p>
+This is a simple example that shows how to intercept `import` specifiers using service workers.</p>
+</p>
+
+<p>
 It is buggy because of how claiming clients works in service workers.
-
 If you want to make a feature like this without buggy behavior, get involved on <a href="https://github.com/whatwg/html/issues/2640">WHATWG spec work on github</a>
+</p>
+
+<p>
+This solution is not suitable for production.
+It requires a variety of source code transforms and extra network calls.
+It also is limited by the service worker scope so it cannot function cross origin.
+Check out how our service worker rewrote <a href="./test.js">./test.js</a> vs how it is <a href="https://github.com/bmeck/node-sw-compat-loader-test/blob/public/dist/test.js">on disk</a>.
+</p>
