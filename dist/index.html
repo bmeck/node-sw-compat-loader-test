@@ -1,0 +1,12 @@
+<script type="text/javascript">
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./bundle.js');
+}
+</script>
+<script type="module" crossorigin="anonymous" src="./test.js"></script>
+This is a simple example that shows how to intercept `import` specifiers using service workers.
+Check out how our service worker rewrote <a href="./test.js">./test.js</a> vs how it is on disk.
+
+It is buggy because of how claiming clients works in service workers.
+
+If you want to make a feature like this without buggy behavior, get involved on <a href="https://github.com/whatwg/html/issues/2640">WHATWG spec work on github</a>
