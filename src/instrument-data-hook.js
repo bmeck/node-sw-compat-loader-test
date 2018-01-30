@@ -21,9 +21,14 @@ const transform = (referrer, meta) => {
         
         if (ns_i >= 0) {
           const ns = path.node.specifiers[ns_i];
-          path.node.specifiers.splice(ns_i, 1);
+          const node_i = path.parent.body.indexOf(path.node);
+          if (path.node.specifiers.length === 1) {
+            path.parent.body.splice(node_i, 1);
+          } else {
+            path.node.specifiers.splice(ns_i, 1);
+          }
           path.parent.body.splice(
-            path.parent.body.indexOf(path.node),
+            node_i,
             0,
             t.importDeclaration(
               [
